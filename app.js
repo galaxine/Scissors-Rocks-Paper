@@ -2,7 +2,7 @@
  * Scissors Rock and Paper. First as a Console text game.
  * 
  * It's a game that's played by at least two players.
- * More and it becomes a battle-royale
+ * More players and it becomes a battle-royale it isn't required so I will not implement it yet.
  * 
  * ---------------------------------------------------------------
  * 
@@ -26,14 +26,22 @@
  * 
  */
 /**
- * i need to put them away, global sucks unless you have to
+ * Returns a pseudo-randomly generated number between 1 and 3.
+ * Is also rounded to give return a natural number
+ * @returns Number
  */
-
 function computerSelection() {
     let number = Math.ceil(Math.random() * 3);
     return number;
 }
-
+/**
+ * Prompts the player an input. it will ignore anythin that isn't spelled:
+ * * Rock
+ * * Paper
+ * * Scissor
+ * returns numbers 1-3 by order
+ * @returns Number
+ */
 function playerSelection() {
     let input = (prompt("Make sure you are entering either rock, paper or scissor. Upper or lower case doesn't really matter, just make sure you write it with the correct spelling.", "")).toLowerCase();
     if (input === "rock") {
@@ -85,7 +93,10 @@ function playRound(playerSelection, computerSelection) {
     console.log("DRAW!");
     return 0;
 }
-
+/**
+ * Is the main function that uses all the other functions to create a game.
+ * Three rounds to win in order to determine the winner.
+ */
 function game() {
     console.log("We are playing a game, wether you like it or not");
     let playerPoints = 0;
