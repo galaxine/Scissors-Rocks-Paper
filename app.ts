@@ -15,23 +15,23 @@ let whoWon: String = '';
 
 rockButton.addEventListener('click', () => {
   choice = 1;
-  whoWon = playRound(choice);
-  whoWinsPoints(whoWon);
-  whoWinsGame(computerPoints, playerPoints);
+  gameMechanics(choice);
 });
 paperButton.addEventListener('click', () => {
   choice = 2;
-  whoWon = playRound(choice);
-  whoWinsPoints(whoWon);
-  whoWinsGame(computerPoints, playerPoints);
+  gameMechanics(choice);
 });
 
 scissorButton.addEventListener('click', () => {
   choice = 3;
+  gameMechanics(choice);
+});
+
+function gameMechanics(choice: number) {
   whoWon = playRound(choice);
   whoWinsPoints(whoWon);
   whoWinsGame(computerPoints, playerPoints);
-});
+}
 
 function whoWinsPoints(whoWon: String) {
   switch (whoWon) {

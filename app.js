@@ -1,81 +1,83 @@
 /**
  * This is the conversion of JS into TS
+ *
+ * NEW: Adding buttons that listen and give points. No more console entering. HOORAY!
  */
-function computerSelection() {
-    var number = Math.ceil(Math.random() * 3);
-    return number;
+var rockButton = document.querySelector('#rock');
+var paperButton = document.querySelector('#paper');
+var scissorButton = document.querySelector('#scissor');
+var choice;
+var playerPoints = 0;
+var computerPoints = 0;
+var whoWon = '';
+rockButton.addEventListener('click', function () {
+    choice = 1;
+    gameMechanics(choice);
+});
+paperButton.addEventListener('click', function () {
+    choice = 2;
+    gameMechanics(choice);
+});
+scissorButton.addEventListener('click', function () {
+    choice = 3;
+    gameMechanics(choice);
+});
+function gameMechanics(choice) {
+    whoWon = playRound(choice);
+    whoWinsPoints(whoWon);
+    whoWinsGame(computerPoints, playerPoints);
 }
-function playerSelection() {
-    var input = prompt("Make sure you are entering either rock, paper or scissor. the upper or lower case doesn't matter.", '').toLowerCase();
-    switch (input) {
-        case 'rock':
-            return 1;
-        case 'scissor':
-            return 2;
-        case 'paper':
-            return 3;
+function whoWinsPoints(whoWon) {
+    switch (whoWon) {
+        case 'c':
+            computerPoints++;
+            break;
+        case 'p':
+            playerPoints++;
+            break;
         default:
             break;
     }
 }
-function playRound(playerSelection, computerSelection) {
-    var player = playerSelection;
-    var computer = computerSelection;
-    if (player === 1 && computer === 2) {
+function whoWinsGame(computerPoints, playerPoints) {
+    if (computerPoints === 3) {
+        alert('The computer won, you dead');
+    }
+    else if (playerPoints === 3) {
+        alert('The player won, computer dead');
+    }
+}
+function computerSelection() {
+    var number = Math.ceil(Math.random() * 3);
+    return number;
+}
+function playRound(playerSelection) {
+    var p = playerSelection;
+    var c = computerSelection();
+    if (p === 1 && c === 2) {
         console.log('Rock got beaten by Paper! Computer wins');
-        return 1;
+        return 'c';
     }
-    else if (player === 2 && computer === 1) {
+    else if (p === 2 && c === 1) {
         console.log('Paper beats Rock! Player wins');
-        return 2;
+        return 'p';
     }
-    else if (player === 2 && computer === 3) {
+    else if (p === 2 && c === 3) {
         console.log('Paper got beaten by Scissor! Computer wins');
-        return 1;
+        return 'c';
     }
-    else if (player === 3 && computer === 2) {
+    else if (p === 3 && c === 2) {
         console.log('Scissor beats Paper! Player wins');
-        return 2;
+        return 'p';
     }
-    else if (player === 3 && computer === 1) {
+    else if (p === 3 && c === 1) {
         console.log('Scissor is beaten by Rock! Computer wins');
-        return 1;
+        return 'c';
     }
-    else if (player === 1 && computer === 3) {
+    else if (p === 1 && c === 3) {
         console.log('Rock beats Scissor! Player wins');
-        return 2;
+        return 'p';
     }
     console.log('DRAW!');
-    return 0;
+    return 'd';
 }
-function whoHasWon(playerPoints, computerPoints) {
-    if (playerPoints === 3) {
-        alert('Player Won! You escaped the room unscathed! The event will accompany for a long time as a trauma');
-    }
-    else if (computerPoints === 3) {
-        alert("The Computer Won! You are losing your limbs and become a part of the wall's decoration!");
-    }
-}
-/**
- * Is the main function that uses all the other functions to create a game.
- * Three rounds to win in order to determine the winner.
- */
-function game() {
-    console.log('We are playing a game, wether you like it or not');
-    var playerPoints = 0;
-    var computerPoints = 0;
-    console.log("Let's play until one of us has won 3 rounds, okay?");
-    while (playerPoints !== 3 && computerPoints !== 3) {
-        var result = playRound(playerSelection(), computerSelection());
-        if (result === 1) {
-            computerPoints++;
-        }
-        else if (result === 2) {
-            playerPoints++;
-        }
-        console.log('Player VS Computer');
-        console.log(playerPoints + ' : ' + computerPoints);
-    }
-    whoHasWon(playerPoints, computerPoints);
-}
-game();
