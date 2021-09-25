@@ -18,4 +18,6 @@ I tried my hand using JSDoc.
 
 I will learn a bit more about DOM and will add some
 Theme behind it. I will have to write and sketch what exactly I want, but then translating it into code, sprites and music will be the hard part.
-This will be done in a fork.
+This will be done in a branch I will call rps-ui.
+
+Rock Paper ScissorsUser Interface
