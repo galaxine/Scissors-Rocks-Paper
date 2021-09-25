@@ -4,9 +4,11 @@
  * NEW: Adding buttons that listen and give points. No more console entering. HOORAY!
  */
 
-const rockButton: Element = document.querySelector('#rock');
-const paperButton: Element = document.querySelector('#paper');
-const scissorButton: Element = document.querySelector('#scissor');
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorButton = document.querySelector('#scissor');
+const playerPointSpan = document.querySelector('.point-player');
+const computerPointSpan = document.querySelector('.point-computer');
 
 let choice: number;
 let playerPoints: number = 0;
@@ -37,9 +39,11 @@ function whoWinsPoints(whoWon: String) {
   switch (whoWon) {
     case 'c':
       computerPoints++;
+      computerPointSpan.textContent = `${computerPoints}`;
       break;
     case 'p':
       playerPoints++;
+      playerPointSpan.textContent = `${playerPoints}`;
       break;
     default:
       break;

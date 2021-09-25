@@ -47,6 +47,10 @@ h1 {
 }
 
 .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: bisque;
     height: 50%;
     width: 50%;
