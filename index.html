@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<script src="app.js" defer></script>-->
+    <script src="app.js" defer></script>
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,14 @@
         <h1>Rock-Papers-Scissors</h1>
     </div>
     <div class="game-container">
-        <div class="screen">Gaming Screen</div>
+        <div class="screen">
+            <h2>Player vs. Computer</h2>
+            <span class="point-player"></span> : <span class="point-computer"></span>
+        </div>
         <div class="game-text">
-            <span></span>
+            <button class="choice" id="rock">Rock</button>
+            <button class="choice" id="paper">Papers</button>
+            <button class="choice" id="scissor">Scissors</button>
         </div>
     </div>
     <div class="footer">Made for fun, Inspired by The Odin Project</div>
