@@ -6,15 +6,57 @@
  * And I am gonna continue to program in JS.
  * I realized that TS is not good yet for me to use, until I sufficiently understand JS.
  */
+
+// I want the images as an object so I can run through it and access it easier
+let path = 'media/images/';
+const images = {
+    'chef': `${path}Chef.png`,
+    'news': `${path}News-recut.png`,
+    'garbage': `${path}garbage_can.png`,
+    'torture': {
+        'normal': `${path}torture_room.png`,
+        'invert': `${path}tortureroom_invert.png`
+    },
+    'answer': {
+        'right': `${path}right_answer.png`,
+        'wrong': `${path}wrong_answer.png`
+    },
+    'game': {
+        'over': `${path}gameover.png`,
+        'won': `${path}game_won.png`
+    }
+
+};
+// I want to add these WHEN the actual game starts
 let rockButton = document.querySelector('#rock');
 let paperButton = document.querySelector('#paper');
 let scissorButton = document.querySelector('#scissor');
+// i want to put these in WHEN the actual game starts
 let playerPointSpan = document.querySelector('.point-player');
 let computerPointSpan = document.querySelector('.point-computer');
 let choice;
 let playerPoints = 0;
 let computerPoints = 0;
 let whoWon = '';
+// i tried out if adding images work. it does. Now try it by creating an element 
+// and append it to the parent
+const gameScreen = document.querySelector('.screen');
+const image = document.createElement("img");
+image.alt = "GameScreen";
+image.srcset = images.game.over;
+gameScreen.appendChild(image);
+
+
+
+// i am trying now to make text appear.
+const gameTextContainer = document.querySelector('.game-text')
+
+
+
+
+
+
+
 rockButton.addEventListener('click', function() {
     choice = 1;
     gameMechanics(choice);

@@ -4,6 +4,8 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "watch": true
+    "watch": true,
+    "outDir": "dist",
+    "sourceMap": true
   }
 }
