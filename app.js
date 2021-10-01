@@ -114,25 +114,31 @@ function whoWinsPoints(whoWon) {
     }
 }
 
-function confirmationAndReset() {
-    let confirmed = confirm('Do you wat to replay?')
-
-    if (confirmed) {
-        playerPoints = 0;
-        computerPoints = 0;
-        choice = 0;
-        backgroundChangeTest(container, 4);
+function resultGame() {
+    let gameOver = document.querySelector(".game-container");
+    let winOrLose = document.createElement('p');
+    if (playerPoints > computerPoints) {
+        winOrLose.textContent = "you Win! Reload to play again!";
+        gameArea.remove('#rock');
+        gameArea.remove('#paper');
+        gameArea.remove('#scissor');
+    } else {
+        winOrLose.textContent = "you Lose! Reload to play again";
+        gameArea.remove('#rock');
+        gameArea.remove('#paper');
+        gameArea.remove('#scissor');
     }
+    gameOver.setAttribute(
+        "style",
+        "font-family: 'Gemunu Libre', sans-serif;")
+    gameOver.append(winOrLose);
 }
-
 
 function whoWinsGame(computerPoints, playerPoints) {
     if (computerPoints === 3) {
-        setTimeout(alert('The computer won'), 150);
-        setTimeout(confirmationAndReset(), 150);
+        resultGame();
     } else if (playerPoints === 3) {
-        alert('the player won');
-        //     confirmationAndReset();
+        resultGame();
     }
 }
 
