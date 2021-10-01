@@ -40,14 +40,32 @@ body {
 
 /*new classes to toggle whenever the player loses a life*/
 
-.content-container-deadest {
+.content-container-dead-five {
     height: 100%;
     display: flex;
     flex-direction: column;
     background: rgb(255, 0, 0);
 }
 
-.content-container-deadder {
+.content-container-dead-four {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgb(200, 24, 24), rgb(255, 0, 0));
+    background-size: 400% 400%;
+    animation: gradientFade 3s ease infinite;
+}
+
+.content-container-dead-three {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgb(129, 24, 24), rgb(255, 0, 0));
+    background-size: 400% 400%;
+    animation: gradientFade 3s ease infinite;
+}
+
+.content-container-dead-two {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -56,7 +74,7 @@ body {
     animation: gradientFade 3s ease infinite;
 }
 
-.content-container-dead {
+.content-container-dead-one {
     height: 100%;
     display: flex;
     flex-direction: column;
