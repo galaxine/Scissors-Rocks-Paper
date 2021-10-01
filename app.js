@@ -9,16 +9,18 @@ const gameArea = document.querySelector('.game-text');
 const container = document.querySelector('.content-container');
 //css classes being used to depict how badly the player is losing
 let gameBackground = {
-        'dead': "content-container-dead",
-        'deader': "content-container-deadder",
-        'deadest': "content-container-deadest",
-        'default': "content-container"
+        'dead-one': "content-container-dead-one",
+        'dead-two': "content-container-dead-two",
+        'dead-three': "content-container-dead-three",
+        'dead-four': "content-container-dead-four",
+        'dead-five': "content-container-dead-five",
     }
     //logic values
 let choice;
 let playerPoints = 0;
 let computerPoints = 0;
 let whoWon = '';
+let winCondition = 5;
 
 //this goes to where the screen is:
 let gamePointContainer = document.querySelector('.screen');
@@ -67,23 +69,26 @@ function backgroundChangeTest(container, number) {
     switch (number) {
         case 1:
             container.classList.replace(
-                className, gameBackground.dead
+                className, gameBackground["dead-one"]
             );
             break;
         case 2:
             container.classList.replace(
-                className, gameBackground.deader
+                className, gameBackground["dead-two"]
             )
         case 3:
             container.classList.replace(
-                className, gameBackground.deadest
+                className, gameBackground["dead-three"]
             )
             break;
         case 4:
             container.classList.replace(
-                className, gameBackground.default
+                className, gameBackground["dead-four"]
             );
             break;
+        case 5:
+            container.classList.replace(
+                className, gameBackground["dead-five"]);
         default:
             break;
     }
@@ -135,9 +140,9 @@ function resultGame() {
 }
 
 function whoWinsGame(computerPoints, playerPoints) {
-    if (computerPoints === 3) {
+    if (computerPoints === winCondition) {
         resultGame();
-    } else if (playerPoints === 3) {
+    } else if (playerPoints === winCondition) {
         resultGame();
     }
 }
