@@ -13,11 +13,14 @@ body {
     width: 100vw;
 }
 
+
+/*default form of the container*/
+
 .content-container {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, black, white);
+    background: linear-gradient(180deg, black, rgb(255, 255, 255));
     background-size: 400% 400%;
     animation: gradientFade 8s ease infinite;
 }
@@ -32,6 +35,34 @@ body {
     100% {
         background-position: 47% 0%;
     }
+}
+
+
+/*new classes to toggle whenever the player loses a life*/
+
+.content-container-deadest {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 0, 0);
+}
+
+.content-container-deadder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgb(129, 24, 24), rgb(216, 23, 23));
+    background-size: 400% 400%;
+    animation: gradientFade 3s ease infinite;
+}
+
+.content-container-dead {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgb(65, 8, 8), rgb(233, 144, 144));
+    background-size: 400% 400%;
+    animation: gradientFade 3s ease infinite;
 }
 
 .header {
@@ -75,9 +106,15 @@ h1 {
 
 .game-text {
     display: flex;
-    flex-direction: column;
+    gap: 30px;
     justify-content: center;
     align-items: center;
+}
+
+p {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 90px;
+    color: gold;
 }
 
 
@@ -85,6 +122,8 @@ h1 {
 
 .footer {
     display: flex;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 50px;
     justify-content: center;
     flex-shrink: 0;
 }
